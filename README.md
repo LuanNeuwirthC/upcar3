@@ -147,4 +147,8 @@ O UpCar demonstra a construção de um fluxo de caronas em um aplicativo Android
 
 ---
 
-Desenvolvido como projeto acadêmico.
+Desenvolvido como projeto acadêmico realizado por:
+Luan Henrique Neuwirth Castilho 
+Lorenzo Vanelli
+Murilo Opis
+.
