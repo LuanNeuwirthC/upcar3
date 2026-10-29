@@ -1,43 +1,73 @@
 # UpCar
 
-O **UpCar** é um aplicativo Android desenvolvido em Kotlin que simula a experiência de solicitar e acompanhar uma carona até um campus universitário. O projeto permite explorar as principais etapas do processo, desde o cadastro do passageiro e a escolha do motorista até a confirmação, o acompanhamento da corrida e a avaliação final.
+O **UpCar** é um aplicativo Android desenvolvido em Kotlin que simula a experiência de solicitar e acompanhar uma carona até um campus universitário. O projeto reúne cadastro de passageiro, consulta de motoristas, solicitação de carona, negociação simulada, acompanhamento da corrida e avaliação.
+
+## Telas do aplicativo
+
+### 1. Tela inicial
+
+A tela de boas-vindas apresenta a identidade visual do UpCar e permite iniciar o fluxo de cadastro do passageiro.
+
+![Tela inicial do UpCar](docs/images/01-boas-vindas.jpg)
+
+### 2. Cadastro de passageiro
+
+O passageiro informa nome, RGM, e-mail e bairro de origem antes de avançar no aplicativo.
+
+![Cadastro de passageiro](docs/images/02-cadastro-passageiro.jpg)
+
+### 3. Corrida em andamento
+
+Durante a corrida, o aplicativo exibe um mapa, os dados do motorista, origem, destino e opções para finalizar a corrida ou acionar a opção de emergência. O progresso apresentado é simulado.
+
+![Corrida em andamento](docs/images/03-corrida-em-andamento.jpg)
+
+### 4. Corrida finalizada e avaliação
+
+Ao chegar ao destino, o passageiro visualiza o resumo da corrida e pode atribuir uma nota, selecionar elogios e escrever um comentário.
+
+![Corrida finalizada e avaliação](docs/images/04-corrida-finalizada.jpg)
+
+### 5. Perfil do motorista
+
+O perfil apresenta informações do motorista, estatísticas, elogios e avaliações. Parte dos dados exibidos no perfil é ilustrativa, conforme a implementação atual do projeto.
+
+![Perfil do motorista](docs/images/05-perfil-motorista.jpg)
 
 ## Funcionalidades
 
 - **Cadastro de passageiro:** registro de informações pessoais e bairro de origem.
-- **Lista de motoristas:** visualização de opções com informações como veículo, placa, horário, preço e avaliação.
-- **Solicitação de carona:** criação de uma solicitação vinculada ao motorista escolhido.
-- **Chat e negociação:** envio de mensagens, sugestão de contraproposta e confirmação do valor.
-- **Mapa:** visualização de motoristas e acompanhamento da corrida com recursos de mapa.
+- **Lista de motoristas:** visualização de opções com veículo, placa, horário, preço e avaliação.
+- **Solicitação de carona:** criação de uma solicitação associada ao motorista escolhido.
+- **Chat e negociação:** envio de mensagens, contraproposta e confirmação simulada de valor.
+- **Mapas:** visualização de motoristas e acompanhamento visual da corrida.
 - **Acompanhamento da corrida:** progresso simulado até a finalização.
-- **Perfil do motorista:** consulta das informações e do histórico de corridas.
+- **Perfil do motorista:** consulta das informações e do histórico apresentado no aplicativo.
 - **Avaliação:** atribuição de nota, comentário e elogios após a corrida.
-- **Persistência local:** armazenamento de passageiros, motoristas, caronas, mensagens e avaliações no banco de dados local.
+- **Persistência local:** armazenamento de passageiros, motoristas, caronas, mensagens e avaliações usando Room.
 
-> **Observação:** o fluxo de negociação e o deslocamento são simulados. O projeto não deve ser entendido como um serviço de transporte conectado a motoristas reais ou como um sistema de localização em tempo real.
+> **Importante:** a negociação e o deslocamento são simulados. O projeto não representa um serviço de transporte conectado a motoristas reais nem oferece localização em tempo real. Algumas informações do perfil do motorista são ilustrativas.
 
 ## Como funciona
 
-O fluxo principal do aplicativo é o seguinte:
-
-1. **Boas-vindas:** o usuário acessa a tela inicial e inicia o processo.
-2. **Cadastro:** informa seus dados para utilizar o aplicativo.
-3. **Escolha do motorista:** consulta os motoristas disponíveis e seleciona uma opção de carona.
-4. **Solicitação e chat:** o aplicativo cria uma carona e abre uma conversa associada a ela. O passageiro pode enviar mensagens e sugerir um valor.
-5. **Confirmação:** após a negociação simulada, o passageiro confirma a carona e segue para a tela de acompanhamento.
-6. **Corrida em andamento:** o progresso é atualizado por uma simulação de duração aproximada de um minuto. Também é possível consultar o perfil do motorista.
-7. **Finalização e avaliação:** ao concluir a corrida, o passageiro pode avaliar a experiência. A avaliação atualiza a nota média e o histórico do motorista.
+1. **Boas-vindas:** o usuário inicia o fluxo no aplicativo.
+2. **Cadastro:** informa os dados do passageiro.
+3. **Escolha do motorista:** consulta a lista e seleciona uma opção de carona.
+4. **Solicitação e chat:** a carona é criada e uma conversa é associada a ela. O passageiro pode enviar mensagens e sugerir outro valor.
+5. **Confirmação:** a negociação é simulada e o passageiro pode confirmar a carona.
+6. **Corrida em andamento:** o aplicativo mostra o mapa e simula o progresso da viagem.
+7. **Finalização e avaliação:** o passageiro conclui o fluxo e pode avaliar a experiência.
 
 ## Tecnologias utilizadas
 
-- **Kotlin:** linguagem principal do aplicativo.
-- **Android SDK:** plataforma de execução.
-- **Jetpack Compose e Material 3:** construção das interfaces.
-- **Navigation Compose:** navegação entre as telas.
-- **ViewModel e Coroutines:** gerenciamento de estado e execução de operações assíncronas.
-- **Room:** persistência de dados em banco local SQLite.
-- **OSMDroid:** recursos de mapas.
-- **Gradle Kotlin DSL:** configuração e gerenciamento da compilação.
+- **Kotlin** — linguagem principal.
+- **Android SDK** — plataforma do aplicativo.
+- **Jetpack Compose e Material 3** — construção da interface.
+- **Navigation Compose** — navegação entre telas.
+- **ViewModel e Coroutines** — gerenciamento de estado e operações assíncronas.
+- **Room** — persistência local sobre SQLite.
+- **OSMDroid** — componentes de mapa.
+- **Gradle Kotlin DSL** — configuração e compilação do projeto.
 
 ## Estrutura do projeto
 
@@ -46,28 +76,28 @@ Os principais arquivos estão em `app/src/main/java/com/example/upcar/`:
 | Arquivo | Responsabilidade |
 | --- | --- |
 | `MainActivity.kt` | Ponto de entrada da interface Android. |
-| `AppNavigation.kt` | Define as rotas e o fluxo de navegação. |
+| `AppNavigation.kt` | Rotas e fluxo de navegação. |
 | `BoasVindas.kt` | Tela inicial. |
 | `CadastroPassageiro.kt` | Cadastro do passageiro. |
 | `ProcuraMotorista.kt` | Listagem e seleção de motoristas. |
-| `PerfilMotorista.kt` | Exibição do perfil do motorista. |
-| `Chat.kt` | Mensagens, contraproposta e confirmação da carona. |
+| `PerfilMotorista.kt` | Tela de perfil do motorista. |
+| `Chat.kt` | Mensagens e negociação simulada. |
 | `CorridaEmAndamento.kt` | Acompanhamento da corrida. |
 | `CorridaFinalizada.kt` | Resumo e avaliação da corrida. |
 | `MapaMotoristas.kt` e `MapaCorrida.kt` | Componentes de mapa. |
-| `CaronaViewModel.kt` | Regras de negócio, estado e coordenação dos dados. |
+| `CaronaViewModel.kt` | Estado e coordenação das operações do aplicativo. |
 | `Modelos.kt` | Entidades e modelos de dados. |
 | `AppDatabase.kt` | Banco Room, DAOs e conversores. |
-| `Validacoes.kt` e `Formatadores.kt` | Funções auxiliares de validação e formatação. |
+| `Validacoes.kt` e `Formatadores.kt` | Funções auxiliares. |
 
 ## Como executar
 
 ### Pré-requisitos
 
 - Android Studio compatível com a configuração do projeto.
-- JDK compatível com a versão do Android Gradle Plugin utilizada.
-- Android SDK e ferramentas de compilação exigidas pelo projeto.
-- Emulador Android ou dispositivo físico para executar o aplicativo.
+- JDK compatível com a versão do Android Gradle Plugin.
+- Android SDK exigido pelo projeto.
+- Emulador Android ou dispositivo físico.
 
 ### Passos
 
@@ -77,17 +107,17 @@ Os principais arquivos estão em `app/src/main/java/com/example/upcar/`:
    git clone https://github.com/LuanNeuwirthC/upcar3.git
    ```
 
-2. Entre na pasta do projeto:
+2. Acesse a pasta do projeto:
 
    ```bash
    cd upcar3
    ```
 
-3. Abra a pasta no Android Studio e aguarde a sincronização do Gradle.
-4. Se necessário, instale as versões do Android SDK solicitadas pelo projeto.
+3. Abra o projeto no Android Studio e aguarde a sincronização do Gradle.
+4. Instale as versões do Android SDK solicitadas, caso necessário.
 5. Selecione um emulador ou dispositivo Android e execute a configuração `app`.
 
-No Windows, também é possível compilar pelo terminal usando o Gradle Wrapper:
+Para compilar pelo terminal no Windows:
 
 ```powershell
 .\gradlew.bat assembleDebug
@@ -101,26 +131,19 @@ No Linux ou macOS:
 
 ## Armazenamento de dados
 
-O aplicativo utiliza o Room para manter dados localmente no dispositivo. Entre as entidades persistidas estão:
-
-- Passageiros;
-- Motoristas;
-- Caronas;
-- Mensagens;
-- Avaliações.
-
-Os motoristas iniciais são carregados pelo aplicativo quando o banco ainda não possui registros. A persistência é local: o repositório não apresenta, no fluxo analisado, um backend remoto para sincronizar dados entre diferentes dispositivos.
+O Room mantém dados localmente no dispositivo. As entidades persistidas incluem passageiros, motoristas, caronas, mensagens e avaliações. Os motoristas iniciais são inseridos quando o banco ainda não contém registros. Não foi identificado no fluxo analisado um backend remoto para sincronização entre dispositivos.
 
 ## Limitações atuais
 
-- A negociação com o motorista é simulada pelo próprio aplicativo.
-- O deslocamento e o progresso da corrida são simulados.
-- Os dados são armazenados localmente, sem sincronização por servidor identificada no código analisado.
-- A disponibilidade de mapas depende da configuração de rede e dos serviços de mapas utilizados.
+- A negociação com o motorista é simulada.
+- O progresso da corrida é simulado.
+- Os dados são armazenados localmente, sem sincronização por servidor identificada.
+- Algumas informações do perfil e avaliações demonstrativas são ilustrativas.
+- A exibição de mapas depende da configuração de rede e dos serviços utilizados.
 
 ## Objetivo do projeto
 
-O UpCar demonstra a implementação de um fluxo de caronas em um aplicativo Android, reunindo navegação entre telas, gerenciamento de estado, persistência local, mapas e interação simulada com o usuário.
+O UpCar demonstra a construção de um fluxo de caronas em um aplicativo Android, combinando navegação entre telas, gerenciamento de estado, persistência local, mapas e interação simulada com o usuário.
 
 ---
 
